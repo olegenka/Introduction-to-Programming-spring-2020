@@ -118,9 +118,9 @@ Arg findZeroNewtMeth(Fun function, Arg low, Arg high, Arg eps)
 	double x = (low + high) / 2; 
 	double  min = 1000000;
 	for (int i = low; i < high; i++)
-		if (min > derivative(function,x))
+		if (min > derivative(function,i))
 		{
-			min = derivative(function,x);
+			min = derivative(function,i);
 		}
 	double  x0 = -1000, x1;
 	x1 = x - function(x) / derivative(function,x);
