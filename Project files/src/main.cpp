@@ -113,11 +113,12 @@ void printContents(Storage<double> s)
     }
 }
 template<typename Fun, typename Arg>
-Arg findZeroNewtMeth(Fun function, Arg low, Arg high, Arg eps)
+Arg NewtMeth(Fun function, Arg low, Arg high, Arg eps)
 {   
 	double x = (low + high) / 2; 
 	double  min = 1000000;
-	for (int i = low; i < high; i++)
+	
+	for (int i = ceil(low); i < high; i++)
 		if (min > derivative(function,i))
 		{
 			min = derivative(function,i);
@@ -138,7 +139,7 @@ int main()
         std::cout << findZero(func1<double>, -1.0, 1.0, 0.00001) << std::endl;
         std::cout << findZero(func1<double>, 1.0, 2.5, 0.0000001) << std::endl;
         std::cout << derivative(func1<double>, 8.0) << std::endl;
-        std::cout << findZeroNewtMeth(func1<double>, 1.5, 2.5, 0.0000001) << std::endl;
+        std::cout << NewtMeth(func1<double>, 1.5, 2.5, 0.0000001) << std::endl;
         MMap<int, double> mmap;
 //        mmap.add();
 
